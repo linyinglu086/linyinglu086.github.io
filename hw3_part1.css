@@ -1,0 +1,14 @@
+form {
+    background: rgb(52, 132, 223);
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;    
+}
+h1 {
+    color: rgb(12, 15, 231); 
+    text-align: center;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homework 3 - Part 2</title>
+        <link rel="stylesheet" href="hw3_part1.css">
+        <script src = "hw3_part2.js"></script>
+ 
+    </head>
+    <body>
+        <h1>Homework 3 - Part 2</h1>
+            <form>
+                <label for="text">Seller's Name:</label>
+                <input type="text" id="Sname" name="Sname">
+                <br>
+                <p>For each item type the quantitity sold by the seller</p>
+                <label for="number">Item 1:</label>
+                <input type="number" name="item[]" class="item">
+                <br><br>
+                <label for="number">Item 2:</label>
+                <input type="number" name="item[]" class="item">
+                <br><br>
+                <label for="number">Item 3:</label>
+                <input type="number" name="item[]" class="item">
+                <br><br>
+                <label for="number">Item 4:</label>
+                <input type="number" name="item[]" class="item">
+                <br><br>        
+                <input type="button" onclick="calculate()" value="SUBMIT">
+                <br><br>
+                <input type="reset" value="Clear Form">
+                <br><br><br>
+        
+                <table id = "itemSold">
+                    <thead>
+                        <th>Item#</th>
+                        <th>Price</th>
+                        <th>Qty Sold</th>
+                        <th>Total $</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="price">$20.99</td>
+                            <td><input type="number" readonly></td>
+                            <td><input type="number" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="price">$12.75</td>
+                            <td><input type="number" readonly></td>
+                            <td><input type="number" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="price">$9.95</td>
+                            <td><input type="number" readonly></td>
+                            <td><input type="number" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="price">$35.89</td>
+                            <td><input type="number" readonly></td>
+                            <td><input type="number" readonly></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><b>Total Amount Sold</b></td>
+                            <td><input type="number" readonly></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><b>Total Weekly Earnings</b></td>
+                            <td><input type="number" readonly></td>
+                        </tr>
+                                        
+                    </tbody>
+        
+                </table>
+            </form>      
+
+        
+
+
+
+        <br>
+        <a href="hw3.html">go back to hw3</a>
+    </body>
+</html>
