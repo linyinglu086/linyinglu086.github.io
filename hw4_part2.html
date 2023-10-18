@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <title>Learn about compound interest</title>
+    <style>
+        input.n {text-align: right;}
+        body {background-color: #a3caa6;}
+        .body { width: 550px; margin: 0px auto;}
+        
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th { background-color:red;}
+        th, td {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: blue;
+        }
+
+        tr:nth-child(even) {background-color: yellow;}
+        tr:nth-child(odd) {background-color:orange;}
+
+        #container {
+                display: flex;
+                flex-wrap:wrap;
+            }
+    
+    </style>
+    <script>
+        document.writeln("<br>");
+        document.writeln("<h1>Learn about compound interest</h1>");
+        document.writeln("<br>");
+        document.writeln("<div id = \"container\">");
+        var r = 5;
+        const P = 1000;
+        var n;
+        var A;
+        for (var m=0; m <3; m++) {
+            document.writeln( "<table>" );
+            for ( var i =0; i <6 ; i++ ) { // rows
+                if (i==0) {
+                    document.writeln("<thead><tr><th>Year</th><th>Amount on deposit</th><th>Interest Rate</th></tr></thead>")                    
+                } else {
+                      
+                        var nR = r * 0.01;
+                        n = i;
+                        A = P*((1+nR)**n);
+                        document.writeln( "<tr>" );                        
+                        document.writeln( "<td>" + n + "</td><td>" + A.toFixed(2) +"</td><td>" + nR + "</td>" );
+                        document.writeln( "</tr>" );
+                }
+            }
+            document.writeln( "</table><br><br>" );
+            r++;
+        }
+        document.writeln("</div>")
+    </script>
+</head>
+<body>
+</body>
+<a href="hw4.html">go back to hw4</a>

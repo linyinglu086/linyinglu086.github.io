@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>Extra Credit</title>
+    <style type="text/css">
+        input.n {text-align:center;}
+        body {background-color: #a3caa6;}
+        .body { width: 550px; margin: 0px auto;}
+
+        form 
+        {
+            border: 3px solid blue;
+            padding: 10px;
+            margin: 10 px;
+        
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Extra Credit</h1>
+    <form>
+        <label for="value">Your Value: </label>
+        <input type="number" name="value" id="value">
+        <br><br>
+        <input type="button" value="Submit" onclick="process();">
+        <input type="reset" value = "Clear" onclick="window.location.reload();">
+        <br><br>
+        </form>
+    <div id = "result"></div>
+    <script>
+            function process() 
+            {
+                var row = parseInt(document.getElementById("value").value); 
+                var space = row-2;
+                document.write( "<pre>" );
+        
+                if (row < 2 || row > 10)  {
+                    document.write("please enter a value between 2 and 10.");
+                }
+                else {
+                    
+                        for (var i=0; i<row; i++) {
+                            if (i==0 || i==row-1) {
+                                for (var j=0; j<row; j++) 
+                                {
+                                    {
+                                        document.write("*");
+                                    }
+                                }
+                            }
+                            else 
+                            {
+                                document.write("*");
+                                for(var m=0; m<space; m++) {
+                                    document.write(" ");
+                                }
+                                document.write("*");
+                            }
+                            document.write("<br>");   
+        
+                            }
+                    
+                }
+                document.write( "</pre>" );  
+            }     
+    </script>
+   
+</body>
+<a href="hw4.html">go back to hw4</a>

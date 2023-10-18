@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <style type="text/css">
+        input.n {text-align:center;}
+        body {background-color: #a3caa6;}
+        .body { width: 550px; margin: 0px auto;}
+        p {font-style:italic; font-weight: bold;}
+        div {            
+            position: fixed;
+            left: 30%;
+            top: 40%;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <p id="product"></p>
+        <p id="sum"></p>
+        <p id="product2"></p>
+        <p id="sum2"></p>
+    </div> 
+
+    <script>
+        var sum = 0; 
+        var product = 1;
+
+        const n = 25;
+        let textS = "";
+        let textP = "";
+
+        for (var i=5; i<=n; i += 4) {
+            sum = sum + i;
+            product = product * i;
+            if (textS == "" && textP == "") {
+                textS = i;
+                textP = i;
+            } else {
+                textS = textS + " + " + i;
+                textP = textP + " * " + i;
+            }
+
+        }
+        document.getElementById("product").innerHTML = "The result of " + textP + " is " + product.toLocaleString();
+        document.getElementById("sum").innerHTML = "The result of " + textS + " is " + sum;
+        //document.write("The result of " + textS + " is " + sum + "<br />");
+        //document.write("The result of " + textP + " is " + product);
+        var j=3;
+        var m=18;
+        var sum2=0; product2=1;
+        let textP2 = ""; textS2 = "";
+        while(j <= m) {
+            sum2 = sum2 + j;
+            product2 = product2 * j;
+            if (textS2 == "" && textP2 == "") {
+                textS2 = j;
+                textP2 = j;
+            } else {
+                textS2 = textS2 + " + " + j;
+                textP2 = textP2 + " * " + j;
+            }
+
+            j = j+3;
+
+        }
+        document.getElementById("product2").innerHTML = "The result of " + textP2 + " is " + product2.toLocaleString();
+        document.getElementById("sum2").innerHTML = "The result of " + textS2 + " is " + sum2;
+        
+    </script>
+     
+</body>
+<a href="hw4.html">go back to hw4</a>
