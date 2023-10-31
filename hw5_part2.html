@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>HW5_Part 2</title>
+    <style>
+        body { width:500px;
+       margin: 0px auto; padding: 15px;
+       text-align: left; 
+       background-color:#f5f5dc;
+      }   
+    </style>
+</head>
+<body>
+        <form>
+            <h3>Choose your destination (using onChange event handler)</h3>
+            <select name="destinationList" onChange="goToNewPage(this.form);">
+                <option>Choose Destination:</option>
+                <option value = "http://www.google.com">Google</option>
+                <option value="http://www.yahoo.com/">Yahoo</option>
+                <option value="http://www.w3.org/">W3C</option>
+                <option value="http://www.mozilla.org/">Mozilla</option>
+            </select>
+        </form>                
+        <br><br>                
+            <form>
+                <h3>Choose your destination (using onClick event handler)</h3>
+                <select name="destinationList">
+                <option value = "http://www.google.com">Google</option>
+                <option value="http://www.yahoo.com/">Yahoo</option>
+                <option value="http://www.w3.org/">W3C</option>
+                <option value="http://www.mozilla.org/">Mozilla</option>
+                </select>
+                <input type="button" value="Go" onClick="goToNewPage(this.form);">
+            </form>
+        <br>
+        <a href="hw5.html">Go back to HW5</a>
+    <script>
+        function goToNewPage(myForm) 
+        {
+            var myDestination = myForm.destinationList.options[myForm.destinationList.selectedIndex].value;
+            window.open(myDestination);
+        }
+    </script>
+</body>

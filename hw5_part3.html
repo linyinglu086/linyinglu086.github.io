@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <title>HW5_Part 3</title>
+    <style>
+        body {
+        font-size: 95%;
+        background-color:#f5f5dc;
+        font-weight: bold;}
+
+        .body {
+        width: 550px;
+        margin: 0px auto; padding: 15px;
+        background-color: #909090;	
+        }
+
+        h2 {color: white;}
+
+        table{
+        border-collapse:collapse;
+        width: 370px;
+        }
+
+        table, td, th{
+        border:1px solid blue;}
+
+    </style>
+</head>
+<body>
+    <section class = "body">
+        <h2>Census data</h2>
+        <table>
+            <tr>
+                <th>State Abbr</th>
+                <th>State Name</th>
+                <th>Capital</th>
+                <th>Population</th>
+            </tr>
+            <tr>
+                <td>AL</td>	
+                <td>Alabama</td>	
+                <td>Montgomery</td>		
+                <td>4,903,185</td>	
+            </tr>                       
+            <tr>
+                <td>AK</td>	
+                <td>Alaska</td>	
+                <td>Juneau</td>		
+                <td>731,545</td>	
+            </tr>
+                        
+            <tr>
+                <td>AZ</td>	
+                <td>Arizona</td>	
+                <td>Phoenix</td>		
+                <td>7,278,717</td>	
+            </tr>
+                        
+            <tr>
+                <td>AR</td>	
+                <td>Arkansan</td>	
+                <td>Little Rock</td>		
+                <td>3,017,825</td>	
+            </tr>
+            <tr>
+                <td>CA</td>
+                <td>California</td>
+                <td>Sacramento</td>
+                <td>39,512,223</td>
+            </tr>
+            <tr>
+                <td>CO</td>
+                <td>Colorado</td>
+                <td>Denver</td>
+                <td>5,758,736</td>
+            </tr>
+
+        </table>
+        <p>Enter the full name or abbreviation of the state to get the information what you want.</p>
+            <form name = "myform">
+                <input type="text" name="stateName" autofocus><br>
+                <input type="button" value = "Submit" name="search" id="search" onclick="ButtonPrcessed();">
+                <input type="reset" value="RESET" onclick="window.location.reload();"><br><br>
+                <textarea id = "output" rows="6" cols = "50"></textarea>
+                <br>
+            </form>
+            <br>
+            <a href="hw5.html">Go back to HW5</a>
+    </section>    
+   
+    <script>
+        var censusArray = [["AL", "Alabama", "Montgomery", "4,903,185"],
+                            ["AK", "Alaska", "Juneau", "731,545"],
+                            ["AZ", "Arizona", "Phoenix", "7,278,717"],
+                            ["AR", "Arkansan", "Little Rock", "3,017,825"],
+                            ["CA", "California", "Sacramento", "39,512,223"],
+                            ["CO", "Colorado", "Denver", "5,758,736"]];
+
+        function ButtonPrcessed() 
+        {
+            var Sname = document.forms["myform"].elements["stateName"].value;
+            if (Sname.length==2) 
+            { 
+                Sname =Sname.toUpperCase();
+            }
+            else if (Sname.length > 2)
+            {
+                Sname = Sname[0].toUpperCase() + (Sname.substr(1, Sname.length-1)).toLowerCase();
+            }
+            var found = false;
+            var msg ="";
+            for (var row = 0; row < censusArray.length; row++)
+            {
+                if ((censusArray[row][0] == Sname) || (censusArray[row][1]) == Sname) 
+                {
+                    msg = "Thanks for your inquiry, here is the information you requested: \nState abbr = " + censusArray[row][0] 
+                    + "\nState Name = " + censusArray[row][1] + "\nCapital = " + censusArray[row][2] + "\nPopulation = " + censusArray[row][3];
+
+                    document.getElementById("output").value = msg;
+                    
+                    row = oilArray.length;   
+                    found = true;
+                }
+            }
+            if (found == false)
+            {
+                document.getElementById("output").value = "Please check your input!";
+
+            }    
+        }    
+    </script>
+</body>

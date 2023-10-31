@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+    <title>HW5_Part 1</title>
+    <style>
+            body {
+                margin:50px 0px; padding:0px;
+                text-align:center;
+                background-color:#f5f5dc;
+                }
+
+            .body {width:600px;
+                margin: 0px auto;
+	            text-align:left;
+	            padding:10px;
+                background-color: #909090;
+            }
+
+            
+    </style>
+ 
+</head>
+<body>
+    <h1>Questionnaire</h1>
+    <section class="body">
+    <form id ="myform" name="myform">
+        <table>
+            <tr>
+                <td></td><label for="fname">Full Name: </label><input type="text" name="fn" id="fname"></td>
+            </tr>
+            <tr>
+                <td><input type = "radio" name = "age", id="age1" value="less than 21"><label for="age1">less than 21</label></td>
+                <td><input type = "radio" name = "age", id="age2" value="beween 21 and 50"><label for="age2">between 21 and 50</label></td>
+                <td><input type = "radio" name = "age", id="age3" value="older than 50"><label for="age3">older than 50</label></td>
+            </tr>    
+            
+            <tr>
+                <td><input type = "checkbox" name ="browsers", id="browsers1" value="firefox"><label for="browsers1">Firefox</label></td>
+                <td><input type = "checkbox" name ="browsers", id="browsers2" value="edge"><label for="browsers2">Edge</label></td>
+                <td><input type = "checkbox" name ="browsers", id="browsers3" value="chrome"><label for="browsers3">Chrome</label></td>
+                <td><input type = "checkbox" name ="browsers", id="browsers4" value="safari"><label for="browsers4">Safari</label></td>
+            </tr>
+            <tr>
+                <td colspan="4"> 
+                    <label for ="movies">Type of movie you prefers: </label>
+                    <select name="movies" id = "movies" class="required">
+                        <option value=" ">-Choose one-</option>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="drama">Drama</option>
+                        <option value="documentary">Documentary</option>
+                        <option value="science fiction">Science Fiction</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button"  onclick="process();" value="SUBMIT">
+                <td><input type="reset" value="RESET" onclick="window.location.reload();">
+            </tr>
+        </table>
+
+    </form>
+    <div>
+        <br><br>
+        <textarea id="output" rows="6" cols = "40"></textarea><br>
+    </div>
+    </section>
+    <br>
+    <a href="hw5.html">Go back to HW5</a>
+    <script>
+            function process(){
+                var msg = "";
+                var inputChecked = false;
+                var ageChecked = false;
+                var browserChecked = false;
+                var movieSelected = false;
+                
+                var name = document.getElementById("fname").value;
+    
+                if (name == "" || name == null)
+                {
+                    inputChecked = false;
+                }
+                else {
+                    inputChecked = true;
+                }
+    
+                for(var i=0; i<3; i++)
+                { 
+                    if (document.myform.age[i].checked) 
+                    {
+                        ageChecked = true;
+                        break;
+                    }
+                }
+    
+                for(var j=0; j<4; j++) 
+                {
+                    if (document.myform.browsers[i].checked)
+                    {
+                        browserChecked = true;
+                    } 
+                }
+    
+                var slemovie = document.forms["myform"].elements["movies"].selectedIndex;
+                if (slemovie >=1) 
+                {
+                    movieSelected = true;
+                }
+    
+                if (inputChecked==true && ageChecked==true && movieSelected==true && browserChecked==true) {
+                    msg = "Thanks, your data was submitted!";
+                    
+                }
+                else if (inputChecked == false) {
+                    msg = "Plase check your name!";
+                } 
+                else if (ageChecked == false) {
+                    msg = "Please check you age!";
+                }
+                else if (movieSelected == false) {
+                    msg = "Please chek you movie type!";
+                }
+                else if (browserChecked == false) {
+                    msg = "Please check your browser choice!"
+                }
+                else {
+                    msg = "Please check your input!";
+                }
+
+                document.getElementById("output").value= msg;                
+            }        
+        </script>
+</body>
