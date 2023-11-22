@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Math Calculate</title>
+    <script>
+        function calculateNumber() {
+            var reg = new RegExp("^[0-9]{1,11}\.[0-9]{4,}$");
+            var errMsg = "Invalid input - type a number with at least 4 decimals";
+
+            if ((document.getElementById("number").value=="" || !(reg.test(document.getElementById("number").value))))
+            {
+                document.getElementById("output").value = errMsg;
+            }
+            else 
+            {
+                var num = parseFloat(document.getElementById("number").value);
+                document.getElementById("output").value= "The entered number: " + num + 
+                "\n round the floating-point number to the nearest integer: " + Math.round(num) +
+                "\n calculate the square root of the floating-point number and round it to an integer: " + Math.round((Math.sqrt(num))) + 
+                "\n round the floating-point number to the nearest tenths position: " + num.toFixed(1) + 
+                "\n round the floating-point number to the nearest hundredths position: " + Math.floor(num*100 +.5) / 100 +
+                "\n round the floating-point number to the nearest thousandths position: " + Math.floor(num*1000 + .5) /1000 ;
+               
+
+            }
+        }
+
+        function res() {
+            document.getElementById("output").value = "";
+            document.getElementById("number").focus();
+        }
+    
+    </script>
+
+    <style>
+        body {background-color: #f5f5dc;}
+       .body { width: 505px; margin: 0px auto;}
+        div {font-size: 18px; font-weight: bold; color:yellow;}
+    </style>
+
+</head>
+<body>
+    <section class = "body">
+    <h2>Math Object</h2>
+   
+    <form id="myForm">
+        <label for = "number">Enter a number has AT LEAST 4 decimal positions</label>:<br>
+        <input type="number" id = "number">
+        <input type="button" value="Calculate" onclick="calculateNumber()"><br>
+        <textarea name="output" id="output" rows = "8" cols="60" readonly></textarea><br>
+        <input type="reset" value = "Reset" onclick="res();">
+    </form><br>
+    <a href="hw6.html">Go back to hw6</a>
+    </section>
+</body>

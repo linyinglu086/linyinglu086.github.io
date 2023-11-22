@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Split Telephone Number</title>
+    <style>
+            body {background-color: #f5f5dc;}
+           .body { width: 505px; margin: 0px auto;}
+      </style>
+      <script>
+          function mySplit()
+          {
+              
+              var phoneNumber = document.getElementById("tel").value;
+              phoneRegExp = /^(\()(\d{3})(\))(\s)(\d{3})(-\d{4})$/;
+              if (!phoneRegExp.test(phoneNumber)) 
+              {
+                  var errmessage = "Please type the telephone number, as a string, in this format (999) 999-9999";
+                  document.getElementById("output").innerHTML = errmessage;
+                  document.getElementById("area").value = "";
+                  document.getElementById("3dit").value = "";
+                  document.getElementById("4dit").value = "";
+             
+              }
+              else
+              {
+                var splitPhone = phoneNumber.split("-");
+                var area3dit = splitPhone[0];
+                document.getElementById("area").value = area3dit.substr(1, 3);
+                document.getElementById("3dit").value = area3dit.substr(6, 9);
+                document.getElementById("4dit").value = splitPhone[1];
+              }
+
+          }
+
+      </script>
+</head>
+
+<body>
+    <section class ="body">
+        <h2>Split Telephone Number</h2>
+        <form>
+            <label for="tel"> Type the telephone number, in this format (999) 999-9999</label>:
+            <input name="tel" type="text" id="tel" size="20" autofocus><br><br>
+
+            <label for ="area" >Area Code</label>:
+            <input type="text" id ="area"><br><br>
+
+            <label for="3dit">First 3 digits</label>:
+            <input type="text" id="3dit"><br><br>
+
+            <label for="4dit">Last 4 digits</label>:
+            <input type="text" id="4dit"><br><br>
+
+            <input type="button" value = "Submit" onclick="mySplit()">
+            <input type = "reset" value = "Reset" onclick="res();">
+        </form>
+        <div id = "output"></div><br>
+        <a href="hw6.html">Go back to hw6</a>
+    </section>
+</body>
+
+</html>

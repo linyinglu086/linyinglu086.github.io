@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <script>
+        function search()
+        {
+            var count =0;
+         
+            var mycontent=document.getElementById("content").value.toLowerCase();
+
+            var key = document.getElementById("letter").value.toLowerCase().charAt(0);
+
+            for (i =0; i<mycontent.length; i++) 
+            {
+                if (mycontent.charAt(i) == key)
+                {
+                 count++;
+                }
+            }
+            
+            if (count !=0) 
+            {        
+                document.getElementById("output").innerHTML = count + " occurrence(s) of " + key + " found";
+            }
+
+           else {   
+
+            // assemble HTML to pump into new window:
+            var myText = "<html>\n";
+            myText += "<head>\n";
+            myText += "<title>Invalid number</title>\n";
+            myText += "</head>\n";
+            myText += "<body>\n";
+            myText += "<div align='center'>\n";
+            myText += "<p><strong>Search character " + key + " not found in the content you typed</strong></p>\n";
+            myText += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+            myText += "</div>\n";
+            myText += "</body>\n";
+            myText += "</html>";
+        
+          // open window on the upper right of the screen
+          var errWindow = window.open("", "new_window", "top=220,left=50,width=300,height=100");
+          errWindow.focus();
+
+         // pump html into to this new opened window
+        errWindow.document.write(myText);
+
+          // tell browser that errWindow document is finished loading
+
+        errWindow.document.close();
+
+          // Put error msg in input text box of original page
+
+            document.getElementById("output").innerHTML = "see popup window";
+
+
+            document.getElementById("content").value="";
+            document.getElementById("letter").value="";
+            }
+        }
+     </script>
+<style>
+        body {background-color: #f5f5dc;}
+       .body { width: 505px; margin: 0px auto;}
+  </style>
+</head>
+<body onload="document.getElementById('content').focus();">
+    <section class="body">
+    <h2>Search character</h2>
+    <form>
+        <p>
+            Enter a long content:<br>
+            <textarea type="text" id = "content" rows ="6" cols="50"></textarea><br>
+        </p>
+        
+        <label for="letter">Enter a letter</label><br>
+        <input type="text" id = "letter"><br>
+        <input type="button" value = "Submit" onclick="search()">
+        <input type = "reset" value = "Reset" onclick="res();">
+        <br><br>
+    </form>
+    <div id = "output"></div><br>
+    <a href="hw6.html">Go back to hw6</a>
+</section>
+
+</body>
+</html>
