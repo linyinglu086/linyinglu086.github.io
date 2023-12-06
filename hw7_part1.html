@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Radio Buttons Test</title>
+        <script>
+            function switchStyle(style) 
+            {
+                var body = document.getElementById("body");
+                if(style == 0) 
+                {
+                    body.className = "purple";
+                }
+                else if(style == 1) {
+                    body.className = "yellow";
+                }
+                else if(style == 2) {
+                    body.className = "orange";
+                }
+                else if(style == 3) {
+                    body.className = "red";
+                }
+            }
+
+            function switchFontStyle(style) 
+            {
+                var body = document.getElementById("paragraph");
+                if(style == 0) {
+                    body.style.textDecoration = "underline"; 
+                }
+                else if(style == 1) {
+                    body.style.fontWeight = "bolder"; 
+                }
+                else if(style == 2) {
+                    body.style.fontStyle = "italic"; 
+                }
+            }
+
+            function selectFontSize()
+            {
+                //var para = document.getElementById("paragraph");    
+                var selectedFontSize = document.getElementById("fontSizeDropDown").value;
+                if (selectedFontSize == "small")
+                {
+                   document.getElementById("paragraph").style.fontSize = "small";
+                }
+                else if (selectedFontSize == "medium")
+                {
+                    document.getElementById("paragraph").style.fontSize = "medium";
+                }
+                else if (selectedFontSize == "large")
+                {
+                    document.getElementById("paragraph").style.fontSize = "x-large";
+                }           
+            }
+
+
+        
+        </script>
+        <style>
+                body {
+                    background-color: #CCCCFF;
+                    color: #0000CC;
+                }
+
+                p {
+                    text-align: center;
+                    font-family: Georgia;
+                    font-size: 18px;
+                }
+                div {
+                    width:425px;
+                    margin: 0px auto; 
+                    padding: 50px;
+                    text-align: left; 
+                }  
+
+                #content {
+	                width:425px;
+	                margin: 0px auto; 
+	                padding: 50px;
+                    text-align: left; 
+	                background-color:#CCFF99;
+	                border-style: solid;
+                    border-width: 2px;
+                    }
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+                th{
+                    padding: 5px;
+                    background-color: #99CCFF ;
+                    color: black;
+                }
+                td {
+                    padding: 5px;
+                    background-color: #C8C8C8;
+                    color: #000099;
+                }
+                
+                .originalBody {
+                     
+                     background-color: #CCCCFF;  
+                     font-family: Georgia;
+                     color: #0000CC; 
+                }
+
+                #originalTable td{
+                    text-align:center;
+                }
+                .purple {
+                    background-color: #9900FF;
+                }
+                .yellow {
+                    background-color: #FFFF00;
+                }
+                .orange {
+                    background-color: #FF9900;
+                }
+                .red {
+                    background-color: #CC0000;
+                }
+                .underline {font-style: underline;}
+                .italic {font-style:italic;}
+                .normal {font-style:normal;}
+                .bold {font-weight:bold;}
+                .normal {font-weight:normal;}
+                .small {
+                    font-size: 10px;
+                }
+                .medium {
+                    font-size: 14px;
+                }
+                .large {
+                    font-size: 18px;
+                }
+        </style>
+
+    </head>
+    <body id="body" class="originalBody">
+        <div id="paragraph" class="para">
+            Radio buttons for the user to select the color of the background to be applied (you should have at least 2 different colors for the user to choose from)<br><br>
+            Checkboxes that will allow the user to choose "underline", and/or "bold", and/or "italic" - remember that HTML checkboxes allow the user to choose one or more options<br><br>
+            A select element to create a drop-down list where you will allow the user to select the font-size to be applied (at least 3 different font-size should be listed and preferably in em, or rem, or % units)     
+        </div>
+        <section id="content">
+        <form id = "myform">
+            <table class="basicTable" id="originalTable">
+                <tr>
+                    <td>
+                    Background: <br>
+                    <input type="radio" name="style" onclick="switchStyle(0)">Purple
+                    </td>
+                    <td>
+                    Background:<br>
+                    <input type="radio" name="style" onclick="switchStyle(1)">Yellow
+                    </td>
+                    
+                    <td>
+                    Background:  <br>
+                    <input type="radio" name="style" onclick="switchStyle(2)">Orange
+                    </td>
+                    
+                    <td>
+                    Background:  <br>
+                    <input type="radio" name="style" onclick="switchStyle(3)">Red
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4">
+                        Choose font style:<br>
+                        <input type="checkbox" name="fstyle" onclick="switchFontStyle(0)">Underline
+                        <input type="checkbox" name="fstyle" onclick="switchFontStyle(1)">Bold
+                        <input type="checkbox" name="fstyle" onclick="switchFontStyle(2)">Italic
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        Select font size: <br>
+                        <select name="fontSizeDropDown" id="fontSizeDropDown" onchange="selectFontSize()">
+                            
+                        <option  value="#">--Select font size--</option> 
+                        <option value="small">Small</option>                         
+                        <option value="medium">Medium</option>                        
+                        <option value="large">Large</option>       
+                        </select>
+                    </td>
+                </tr>
+        </form>
+
+    </section>
+    </body>
+    
+</html>

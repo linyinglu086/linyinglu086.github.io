@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Cookies - username">
+<title>Cookies - name</title>
+
+      <script>
+function createCookie() {
+    var yName = "yname";
+    var yValue =document.getElementById("nam").value;
+  var cName = "username";
+  var cValue = document.getElementById("user").value;
+  document.cookie = yName + "=" + yValue + ";" + cName + "=" + cValue + ";";
+}
+
+function getCookie(yName) {
+  var name = yName + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  var user = getCookie("yname");
+  if (user != "") {
+    console.log(user);
+    document.getElementById("result").innerHTML = "Welcome back " + user;
+    document.getElementById("myform").style.display = "none";
+  } else {
+    document.getElementById("myform").style.display = "block";
+    }
+  }
+</script>
+<style>
+      body {background-color: #f5f5dc;}
+      .body { width: 505px; margin: 0px auto;}
+      #result { color: red; font-weight: bold; font-size: 1.3rem; }
+
+</style>
+
+</head>
+
+<body onload="checkCookie();">
+
+<section class = "body">
+
+<h2>Two pairs of Cookies</h2>
+<p id="result"></p>
+<div id="myform">
+<form>
+        <label for="nam">Type your name: </label> <input type="text" name="nam" id="nam">
+        <br><br>
+
+<label for="user">Type your username: </label> <input type="text" name="user" id="user">
+<br><br>
+<input type="button" value="Create Cookie" onclick="createCookie();"><br>
+<input type="reset" value="Clear Form">
+</form>
+</div>
+</section>
+
+</body>
+</html>
