@@ -64,4 +64,12 @@
     <PRICE>8.20</PRICE>
     <YEAR>1987</YEAR>
   </CD>
+    <CD>
+    <TITLE>Cherry</TITLE>
+    <ARTIST>Linying Lu</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <COMPANY>Fruit Cherry</COMPANY>
+    <PRICE>100.00</PRICE>
+    <YEAR>2023</YEAR>
+  </CD>
 </CATALOG>

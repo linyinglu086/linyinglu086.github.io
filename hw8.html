@@ -10,6 +10,7 @@ th,td {
 }
 </style>
 <body>
+    <h1>Homework 8 - AJAX Application</h1>
 
 <button type="button" onclick="loadDoc()">Get CD collection</button>
 <br><br>
@@ -38,7 +39,9 @@ function myFunction(xml) {
   document.getElementById("demo").innerHTML = table;
 }
 </script>
-
+<h2>Explanation of AJAX</h2>
+<p>When you clicks on the "Get CD collection" button above, the loadDoc() function is executed. The loadDoc() function creates an XMLHttpRequest object, adds the function to be executed when the server response is ready, and sends the request off to the server.</p>
+<p>When the server response is ready, an HTML table is built, nodes (elements) are extracted from the XML file, and it finally updates the element "demo" with the HTML table filled with XML data</p>
 </body>
 </html>
 
