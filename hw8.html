@@ -11,10 +11,22 @@
         table,th,td {
             border : 1px solid black;
             border-collapse: collapse;
+            text-align: center;
+           
         }
         th,td {
             padding: 5px;
         }
+
+        body {
+            background-color: beige;
+        }
+
+        .demo {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         </style>
     </head>
 <body>
@@ -22,7 +34,7 @@
 
 <button type="button" onclick="loadDoc()">Get CD collection</button>
 <br><br>
-<table id="demo"></table>
+<table id="demo" class="demo"></table>
 
 <script>
 function loadDoc() {
